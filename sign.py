@@ -1,3 +1,5 @@
+import secrets
+
 from fastecdsa.curve import secp256k1
 from fastecdsa.keys import export_key, gen_keypair
 
@@ -7,12 +9,12 @@ from hashlib import sha256
 def sign(m):
 	#generate public key
 	#Your code here
-	public_key = None
+
+	private_key, public_key = keys.gen_keypair(curve.secp256k1)
 
 	#generate signature
 	#Your code here
-	r = 0
-	s = 0
+	r , s = ecdsa.sign(m, private_key, curve.secp256k1)
 
 	assert isinstance( public_key, point.Point )
 	assert isinstance( r, int )
